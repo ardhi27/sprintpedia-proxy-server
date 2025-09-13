@@ -1,5 +1,6 @@
 import axios from "axios";
 import GLOBALS from "@/shared/ consts/global-config";
+
 /**
  * Base configuration for API request fetching.
  * @example http.get('/user')

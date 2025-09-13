@@ -3,6 +3,11 @@ import axios, { AxiosError } from "axios";
 import * as cheerio from "cheerio";
 import http from "@/shared/libs/http";
 
+/**
+ * Getting token
+ * @example http.get('/user')
+ */
+
 export async function GET() {
   try {
     const loginPage = await http.get("/auth/login", {
