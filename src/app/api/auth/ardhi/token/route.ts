@@ -1,16 +1,13 @@
 import { NextResponse } from "next/server";
 import axios, { AxiosError } from "axios";
 import * as cheerio from "cheerio";
+import http from "@/shared/libs/http";
 
 export async function GET() {
   try {
-    const client = axios.create({
-      baseURL: "https://sprintpedia.id",
-      withCredentials: true,
+    const loginPage = await http.get("/auth/login", {
       headers: { "User-Agent": "Mozilla/5.0" },
     });
-
-    const loginPage = await client.get("/auth/login");
     const cookies: string[] = loginPage.headers["set-cookie"] || [];
 
     const $ = cheerio.load(loginPage.data);
