@@ -1,5 +1,7 @@
-interface InstagramUsernameProps {
-  username: string;
-}
+import * as z from "zod";
 
-export default InstagramUsernameProps;
+export const InstagramUsernameSchema = z.object({
+  username: z.string(),
+});
+
+export type InstagramUsername = z.infer<typeof InstagramUsernameSchema>;

@@ -5,15 +5,15 @@ import axios from "axios";
 import searchIcon from "@/assets/logo-search.svg";
 import { useResponseInstagramDataStore } from "../store/useInstagramResponse";
 import { useForm } from "react-hook-form";
-import InstagramUsernameProps from "@/shared/types/form/instagram-username-form";
 import { useState } from "react";
+import { InstagramUsername } from "@/shared/types/form/instagram-username-form";
 
 const InstagramDataInput = () => {
   const { data, updateData } = useResponseInstagramDataStore();
   const [loading, setIsLoading] = useState(false);
-  const { register, handleSubmit } = useForm<InstagramUsernameProps>();
+  const { register, handleSubmit } = useForm<InstagramUsername>();
 
-  const onSubmit = async (data: InstagramUsernameProps) => {
+  const onSubmit = async (data: InstagramUsername) => {
     setIsLoading(true);
     try {
       const res = await axios.get(`/api/instagramdata`, {
