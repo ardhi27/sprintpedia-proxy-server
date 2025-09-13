@@ -2,27 +2,12 @@
 import { Button, Group, Input, Stack } from "@mantine/core";
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+import useCsrfToken from "../hooks/useCsrfToken";
 const LoginForm = () => {
-  const [loading, setLoading] = useState(false);
-  const [csrfToken, setCsrfToken] = useState("");
-  const [message, setMessage] = useState("");
+  const { csrfToken, isLoading, isError, error } = useCsrfToken();
 
-  useEffect(() => {
-    const fetchToken = async () => {
-      try {
-        const res = await axios.get("/api/auth/ardhi/token", {
-          withCredentials: true,
-        });
-        if (res.data.csrf_token) {
-          setCsrfToken(res.data.csrf_token);
-        }
-      } catch (err: any) {
-        console.error("Gagal fetch token:", err.message);
-      }
-    };
-    fetchToken();
-  }, []);
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
