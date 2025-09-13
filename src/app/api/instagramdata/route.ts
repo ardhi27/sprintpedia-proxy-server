@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import http from "@/shared/libs/http";
+import { AxiosError } from "axios";
 
 export async function GET(req: NextRequest) {
   try {
@@ -37,11 +38,12 @@ export async function GET(req: NextRequest) {
 
     console.log("DATA : ", jsonData);
     return NextResponse.json(jsonData, { status: 200 });
-  } catch (err: any) {
-    console.error("ERR:", err.response?.data || err.message);
+  } catch (err) {
+    const error = err as AxiosError;
+    console.error("ERR:", error.response?.data || error.message);
     return NextResponse.json(
-      { error: err.response?.data || err.message },
-      { status: err.response?.status || 500 }
+      { error: error.response?.data || error.message },
+      { status: error.response?.status || 500 }
     );
   }
 }

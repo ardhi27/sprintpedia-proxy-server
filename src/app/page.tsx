@@ -37,8 +37,8 @@ const HomePage = () => {
                 berasal dari Sprintpedia, agar tidak melanggar SOP dalam
                 mengakses endpoint yang bersifat privat dan terproteksi, akun
                 yang digunakan bersifat dummy dan telah disediakan! anda tidak
-                perlu login lagi. Silahkan tekan tombol "Continue" untuk
-                melanjutkan.
+                perlu login lagi. Silahkan tekan tombol &quot;Continue&quot;
+                untuk melanjutkan.
               </Text>
               <LoginForm />
             </Group>

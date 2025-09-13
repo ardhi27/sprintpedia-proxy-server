@@ -1,8 +1,8 @@
-import axios from "axios";
 import { NextRequest, NextResponse } from "next/server";
 import FormData from "form-data";
 import * as cheerio from "cheerio";
 import http from "@/shared/libs/http";
+import { AxiosError } from "axios";
 
 export async function POST(req: NextRequest) {
   try {
@@ -68,11 +68,12 @@ export async function POST(req: NextRequest) {
     });
 
     return response;
-  } catch (err: any) {
-    console.error("Error:", err.response?.data || err.message);
+  } catch (err) {
+    const error = err as AxiosError;
+    console.error("Error:", error.response?.data || error.message);
     return NextResponse.json(
-      { error: err.response?.data || err.message },
-      { status: err.response?.status || 500 }
+      { erroror: error.response?.data || error.message },
+      { status: error.response?.status || 500 }
     );
   }
 }

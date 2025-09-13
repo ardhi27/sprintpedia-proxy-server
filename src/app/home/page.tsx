@@ -1,4 +1,3 @@
-import CookieWatcher from "@/features/common/component/cookie-watcher";
 import { InstagramDataInput } from "@/features/common/component/instagram-data-input";
 import { InstagramInformation } from "@/features/common/component/instagram-information";
 import { JsonInformation } from "@/features/common/component/json-information";

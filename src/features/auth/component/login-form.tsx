@@ -1,8 +1,7 @@
 "use client";
-import { Button, Group, Input, Stack, Text } from "@mantine/core";
+import { Button, Group, Input, Stack } from "@mantine/core";
 import { useState } from "react";
 import useCsrfToken from "../hooks/useCsrfToken";
-import http from "@/shared/libs/http";
 import AuthFormProps from "@/shared/types/form/auth-form";
 import { useForm } from "react-hook-form";
 import serverHttp from "@/shared/libs/server-http";
@@ -29,7 +28,6 @@ const LoginForm = () => {
       formData.append("username", data.username);
       formData.append("password", data.password);
 
-      //fetch data to api
       const res = await serverHttp.post("/api/auth/ardhi/login", formData, {
         headers: {
           "Content-Type": "multipart/form-data",

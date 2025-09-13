@@ -8,7 +8,7 @@ const InstagramInformation = () => {
   if (!data.data) {
     return (
       <Stack>
-        <Text className="font-bold text-black"></Text>
+        <Text className="font-bold text-black">Data Tidak Ditemukan!</Text>
       </Stack>
     );
   }
