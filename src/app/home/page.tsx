@@ -12,7 +12,7 @@ const HomePage = async () => {
           Instagram Spam Filter Check!(Based On Sprintpedia)
         </Text>
         <Stack
-          className="w-2xl bg-white shadow-xl p-3 outline-1 outline-black rounded-md h-full "
+          className="w-2xl max-md:w-sm bg-white shadow-xl p-3 outline-1 outline-black rounded-md h-full "
           gap={10}
         >
           <Text className="text-black font-bold">Find Data Below!</Text>

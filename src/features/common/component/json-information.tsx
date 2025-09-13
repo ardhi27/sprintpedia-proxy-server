@@ -10,7 +10,7 @@ const JsonInformation = () => {
   }
 
   return (
-    <Stack className="w-2xl h-full bg-white shadow-xl p-3 outline-1 outline-black rounded-md ">
+    <Stack className="w-2xl max-md:w-sm h-full bg-white shadow-xl p-3 outline-1 outline-black rounded-md ">
       <Text className="text-black font-bold">JSON Response</Text>
       <Box className="w-full overflow-auto text-black">
         <pre className="text-xs">{JSON.stringify(data, null, 2)}</pre>
