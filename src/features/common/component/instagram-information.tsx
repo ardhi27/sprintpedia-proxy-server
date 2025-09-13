@@ -5,12 +5,8 @@ import { useResponseInstagramDataStore } from "../store/useInstagramResponse";
 const InstagramInformation = () => {
   const { data } = useResponseInstagramDataStore();
 
-  if (!data.data) {
-    return (
-      <Stack>
-        <Text className="font-bold text-black">Data Tidak Ditemukan!</Text>
-      </Stack>
-    );
+  if (!data?.data) {
+    return <></>;
   }
 
   const profile = data.data;

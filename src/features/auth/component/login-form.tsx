@@ -5,6 +5,7 @@ import useCsrfToken from "../hooks/useCsrfToken";
 import AuthFormProps from "@/shared/types/form/auth-form";
 import { useForm } from "react-hook-form";
 import serverHttp from "@/shared/libs/server-http";
+import axios from "axios";
 
 const LoginForm = () => {
   const { csrfToken, isLoading: tokenLoading } = useCsrfToken();
@@ -34,8 +35,15 @@ const LoginForm = () => {
         },
       });
       window.location.href = "/home";
-    } catch (error: any) {
-      setMessage(error);
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        console.error("Axios error:", err.response?.data);
+      } else if (err instanceof Error) {
+        console.error("Error:", err.message);
+      } else {
+        console.error("Unexpected error:", err);
+      }
+      setMessage(String(err));
     } finally {
       setLoading(false);
     }

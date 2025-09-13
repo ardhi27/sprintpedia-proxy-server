@@ -5,7 +5,7 @@ import { useResponseInstagramDataStore } from "../store/useInstagramResponse";
 const JsonInformation = () => {
   const { data } = useResponseInstagramDataStore();
 
-  if (!data.data) {
+  if (!data?.data) {
     return <></>;
   }
 

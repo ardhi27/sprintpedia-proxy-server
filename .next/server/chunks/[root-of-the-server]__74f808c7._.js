@@ -275,7 +275,6 @@ module.exports = mod;
 "[project]/src/app/api/auth/ardhi/token/route.ts [app-route] (ecmascript)", ((__turbopack_context__) => {
 "use strict";
 
-// src/app/api/auth/ardhi/token/route.ts
 __turbopack_context__.s([
     "GET",
     ()=>GET
@@ -296,10 +295,8 @@ async function GET() {
                 "User-Agent": "Mozilla/5.0"
             }
         });
-        // GET halaman login
         const loginPage = await client.get("/auth/login");
         const cookies = loginPage.headers["set-cookie"] || [];
-        // parse csrf_token dari hidden input
         const $ = __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$cheerio$40$1$2e$1$2e$2$2f$node_modules$2f$cheerio$2f$dist$2f$esm$2f$load$2d$parse$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["load"](loginPage.data);
         const csrfToken = $("input[name=csrf_token]").val();
         if (!csrfToken) {
@@ -309,7 +306,6 @@ async function GET() {
                 status: 400
             });
         }
-        // simpan cookies supaya bisa dipakai di POST login
         const cookieString = cookies.map((c)=>c.split(";")[0]).join("; ");
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$5$2e$3_react$2d$dom$40$19$2e$1$2e$0_react$40$19$2e$1$2e$0_$5f$react$40$19$2e$1$2e$0$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
             csrf_token: csrfToken,
@@ -318,8 +314,9 @@ async function GET() {
             status: 200
         });
     } catch (err) {
+        const error = err;
         return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$15$2e$5$2e$3_react$2d$dom$40$19$2e$1$2e$0_react$40$19$2e$1$2e$0_$5f$react$40$19$2e$1$2e$0$2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
-            error: err.message || "Failed to get csrf_token"
+            error: error.message || "Failed to get csrf_token"
         }, {
             status: 500
         });

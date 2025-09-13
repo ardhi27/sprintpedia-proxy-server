@@ -22,8 +22,14 @@ const InstagramDataInput = () => {
       });
       updateData(res.data);
       console.log("API result:", res.data);
-    } catch (err: any) {
-      console.error("Error:", err.response?.data || err.message);
+    } catch (err: unknown) {
+      if (axios.isAxiosError(err)) {
+        console.error("Axios error:", err.response?.data);
+      } else if (err instanceof Error) {
+        console.error("Error:", err.message);
+      } else {
+        console.error("Unexpected error:", err);
+      }
     } finally {
       setIsLoading(false);
     }
