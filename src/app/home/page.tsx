@@ -2,16 +2,7 @@ import { FormInput } from "@/features/common/component/form-input";
 import { InstagramInformation } from "@/features/common/component/instagram-information";
 import { JsonInformation } from "@/features/common/component/json-information";
 import LayoutPage from "@/features/common/component/layout";
-import { useResponseInstagramDataStore } from "@/features/common/store/useInstagramResponse";
-import {
-  Box,
-  Button,
-  Group,
-  Input,
-  SimpleGrid,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Box, Stack, Text } from "@mantine/core";
 
 import { cookies } from "next/headers";
 const HomePage = async () => {

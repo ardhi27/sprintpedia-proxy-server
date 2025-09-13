@@ -1,50 +1,62 @@
 "use client";
-import { Button, Group, Input, Stack } from "@mantine/core";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { Button, Group, Input, Stack, Text } from "@mantine/core";
+import { useState } from "react";
 import useCsrfToken from "../hooks/useCsrfToken";
+import http from "@/shared/libs/http";
+import AuthFormProps from "@/shared/types/form/auth-form";
+import { useForm } from "react-hook-form";
+
 const LoginForm = () => {
-  const { csrfToken, isLoading, isError, error } = useCsrfToken();
+  const { csrfToken, isLoading: tokenLoading } = useCsrfToken();
 
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
+  const { register, handleSubmit } = useForm<AuthFormProps>({
+    defaultValues: {
+      username: "agungardhiyanda",
+      password: "Aldhie2703",
+      csrf_token: csrfToken || "",
+    },
+  });
 
+  const onSubmit = async (data: AuthFormProps) => {
+    setLoading(true);
     try {
       const formData = new FormData();
-      formData.append("csrf_token", csrfToken);
-      formData.append("username", "agungardhiyanda");
-      formData.append("password", "Aldhie2703");
+      formData.append("csrf_token", data.csrf_token);
+      formData.append("username", data.username);
+      formData.append("password", data.password);
 
-      const res = await axios.post("/api/auth/ardhi/login", formData, {
-        withCredentials: true,
+      //fetch data to api
+      const res = await http.post("/api/auth/ardhi/login", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
-
-      setMessage("Login berhasil");
-      console.log("Login response:", res.data);
-      window.location.href = "/home";
-    } catch (err: any) {
-      setMessage("Login gagal: " + (err.response?.data?.error || err.message));
+    } catch (error: any) {
+      setMessage(error);
     } finally {
       setLoading(false);
     }
   };
 
+  //update csrf_token
+  const defaultValue = {
+    username: "agungardhiyanda",
+    password: "Aldhie2703",
+    csrf_token: csrfToken || "",
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <Stack className="w-full">
-        <Input hidden value={csrfToken} name="csrf_token" readOnly />
-        <Input hidden value="agungardhiyanda" name="username" readOnly />
-        <Input hidden value="Aldhie2703" name="password" readOnly />
+        <Input hidden {...register("csrf_token")} />
+        <Input hidden {...register("username")} />
+        <Input hidden {...register("password")} />
         <Group className="w-full justify-center">
-          <Button type="submit" disabled={loading}>
-            {loading ? "Loading..." : "Continue"}
+          <Button type="submit" disabled={loading || tokenLoading}>
+            {loading || tokenLoading ? "Loading..." : "Continue"}
           </Button>
         </Group>
       </Stack>

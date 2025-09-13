@@ -6,6 +6,8 @@ import {
   MantineProvider,
   mantineHtmlProps,
 } from "@mantine/core";
+import { QueryClientProvider } from "@tanstack/react-query";
+import queryClient from "@/shared/libs/query-client";
 
 export const metadata = {
   title: "My Mantine app",
@@ -23,7 +25,9 @@ export default function RootLayout({
         <ColorSchemeScript />
       </head>
       <body>
-        <MantineProvider>{children}</MantineProvider>
+        <QueryClientProvider client={queryClient}>
+          <MantineProvider>{children}</MantineProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

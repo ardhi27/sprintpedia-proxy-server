@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///Users/agungardhiyanda/Documents/GitHub/sprirntpedia-proxy-server/src/shared/libs/query-client.ts"],"sourcesContent":["\"use client\";\nimport { QueryClient } from \"@tanstack/react-query\";\n\n/**\n * Base configuration of query client\n */\nconst queryClient = new QueryClient();\n\nexport default queryClient;\n"],"names":[],"mappings":";;;;AACA;AADA;;AAGA;;CAEC,GACD,MAAM,cAAc,IAAI,qQAAW;uCAEpB","debugId":null}}]
+}

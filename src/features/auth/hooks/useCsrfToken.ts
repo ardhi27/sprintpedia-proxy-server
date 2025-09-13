@@ -1,9 +1,9 @@
+import serverHttp from "@/shared/libs/server-http";
 import { useQuery } from "@tanstack/react-query";
-import http from "@/shared/libs/http";
 
 const useCsrfToken = () => {
   const getToken = async () => {
-    const res = await http.get("/api/auth/ardhi/token");
+    const res = await serverHttp.get("/api/auth/ardhi/token");
     return res.data.csrf_token;
   };
   const {

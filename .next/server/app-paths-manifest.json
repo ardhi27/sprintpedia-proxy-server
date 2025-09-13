@@ -1,1 +1,7 @@
-{}
+{
+  "/api/auth/ardhi/token/route": "app/api/auth/ardhi/token/route.js",
+  "/api/instagramdata/route": "app/api/instagramdata/route.js",
+  "/home/page": "app/home/page.js",
+  "/login/page": "app/login/page.js",
+  "/page": "app/page.js"
+}

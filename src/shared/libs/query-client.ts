@@ -1,8 +1,9 @@
+"use client";
 import { QueryClient } from "@tanstack/react-query";
 
 /**
  * Base configuration of query client
  */
-const query = new QueryClient();
+const queryClient = new QueryClient();
 
-export default query;
+export default queryClient;
