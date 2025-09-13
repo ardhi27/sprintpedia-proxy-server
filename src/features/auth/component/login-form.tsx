@@ -5,6 +5,7 @@ import useCsrfToken from "../hooks/useCsrfToken";
 import http from "@/shared/libs/http";
 import AuthFormProps from "@/shared/types/form/auth-form";
 import { useForm } from "react-hook-form";
+import serverHttp from "@/shared/libs/server-http";
 
 const LoginForm = () => {
   const { csrfToken, isLoading: tokenLoading } = useCsrfToken();
@@ -29,23 +30,17 @@ const LoginForm = () => {
       formData.append("password", data.password);
 
       //fetch data to api
-      const res = await http.post("/api/auth/ardhi/login", formData, {
+      const res = await serverHttp.post("/api/auth/ardhi/login", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      window.location.href = "/home";
     } catch (error: any) {
       setMessage(error);
     } finally {
       setLoading(false);
     }
-  };
-
-  //update csrf_token
-  const defaultValue = {
-    username: "agungardhiyanda",
-    password: "Aldhie2703",
-    csrf_token: csrfToken || "",
   };
 
   return (

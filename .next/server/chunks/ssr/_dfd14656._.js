@@ -57,7 +57,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$shared$2f$libs$2f$que
 ;
 ;
 const metadata = {
-    title: "My Mantine app",
+    title: "Dapur Buzzer Development Website",
     description: "I have followed setup instructions carefully"
 };
 function RootLayout({ children }) {

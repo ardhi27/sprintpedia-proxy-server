@@ -6,8 +6,8 @@ import sprintPediaLogo from "@/assets/logo-sprintpedia.png";
 
 const LayoutPage = ({ children }: LayoutProps) => {
   return (
-    <Stack className={`w-screen min-h-screen bg-gray-200/50`}>
-      <header className={`w-full h-[6rem] bg-gray-200/50 shadow-md`}>
+    <Stack className={`w-screen min-h-screen p-3 bg-gray-200/50`}>
+      <header className={`w-full rounded-md h-[6rem] bg-white shadow-md`}>
         <Group className="w-full h-full py-2 px-5 justify-between" gap={5}>
           <Image src={companyLogo} className="w-20 h-11" alt="company-logo" />
           <Group>

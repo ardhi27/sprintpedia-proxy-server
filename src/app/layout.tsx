@@ -10,7 +10,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import queryClient from "@/shared/libs/query-client";
 
 export const metadata = {
-  title: "My Mantine app",
+  title: "Dapur Buzzer Development Website",
   description: "I have followed setup instructions carefully",
 };
 

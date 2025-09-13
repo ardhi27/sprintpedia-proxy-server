@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/src/middleware.ts"],"sourcesContent":["import { NextResponse } from \"next/server\";\nimport type { NextRequest } from \"next/server\";\n\nexport function middleware(request: NextRequest) {\n  const csrfCookie = request.cookies.get(\"csrf_cookie\");\n\n  if (!csrfCookie) {\n    return NextResponse.redirect(new URL(\"/\", request.url));\n  }\n\n  return NextResponse.next();\n}\n\n// Proteksi hanya halaman /home\nexport const config = {\n  matcher: [\"/home/:path*\"],\n};\n"],"names":[],"mappings":";;;;;;AAAA;AAAA;;AAGO,SAAS,WAAW,OAAoB;IAC7C,MAAM,aAAa,QAAQ,OAAO,CAAC,GAAG,CAAC;IAEvC,IAAI,CAAC,YAAY;QACf,OAAO,+TAAY,CAAC,QAAQ,CAAC,IAAI,IAAI,KAAK,QAAQ,GAAG;IACvD;IAEA,OAAO,+TAAY,CAAC,IAAI;AAC1B;AAGO,MAAM,SAAS;IACpB,SAAS;QAAC;KAAe;AAC3B"}}]
+}

@@ -1,7 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/auth/ardhi/login/route": "app/api/auth/ardhi/login/route.js",
   "/api/auth/ardhi/token/route": "app/api/auth/ardhi/token/route.js",
   "/api/instagramdata/route": "app/api/instagramdata/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
   "/home/page": "app/home/page.js",
-  "/login/page": "app/login/page.js",
   "/page": "app/page.js"
 }
