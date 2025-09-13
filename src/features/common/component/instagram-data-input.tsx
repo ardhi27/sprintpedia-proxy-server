@@ -37,8 +37,8 @@ const InstagramDataInput = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Stack className="w-full">
-        <Group className="w-full h-full items-center flex-nowrap" gap={2}>
+      <Stack className="w-full max-md:w-lg">
+        <Group className="max-md:w-sm h-full items-center flex-nowrap" gap={2}>
           <Input
             className="w-full rounded-lg"
             size="md"
