@@ -1,4 +1,4 @@
-import { Welcome } from "@/shared/types/response/instagram-response-types";
+import { Welcome } from "@/shared/types/instagram-data/instagram-response-types";
 import { create } from "zustand";
 
 interface InstagramStoreProps {
